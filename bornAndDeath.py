@@ -26,12 +26,11 @@ results = ' '.join(allPhoneNumbers)
 ##pyperclip.copy(results)
 print(results)
 
-yearRegex=re.compile(r'''
-(
-# Narrow the years#
-([0-9][0-9][0-9][0-9])
-)
-''',re.VERBOSE)
+yearRegex=re.compile(r"" "\n"
+                     r"(" "\n"
+                     r"# Narrow the years#" "\n"
+                     r"([0-9][0-9][0-9][0-9])" "\n"
+                     r")" "\n", re.VERBOSE)
 extractedYear=yearRegex.findall(results)
 allYear= []
 for yearNumber in extractedYear:
@@ -95,7 +94,6 @@ postResults = ''.join(str(postAge))
 postSampleSize=len(postAge)
 
 
-#TODO: Split Each into age group and era
 preDict={'0-4':0,'5-9':0,'10-14':0,'15-19':0,'20-24':0,'25-29':0,'30-34':0,'35-39':0,'40-44':0,'45-49':0,'50-54':0,'55-59':0,'60-64':0,'65-69':0,'70-74':0,'75-79':0,'80-84':0,'85-89':0,'90-94':0,'95-99':0,'100+':0}
 postDict={'0-4':0,'5-9':0,'10-14':0,'15-19':0,'20-24':0,'25-29':0,'30-34':0,'35-39':0,'40-44':0,'45-49':0,'50-54':0,'55-59':0,'60-64':0,'65-69':0,'70-74':0,'75-79':0,'80-84':0,'85-89':0,'90-94':0,'95-99':0,'100+':0}
 counter=0
@@ -275,13 +273,14 @@ print('This is the pre ' + str(deathYear)+" data, this has a sample size of "+ s
 print(preDict)
 print('This is the post ' + str(deathYear)+" data, this has a sample size of "+ str(postSampleSize))
 print(postDict)
-#TODO: Ask the user what list they would like to use
+
+
 print("Press 0 if you want to have the pre-"+str(deathYear)+" on your clipboard, 1 for the post-"+str(deathYear)+" data" )
 answer=input()
 if int(answer)==0:
-    pyperclip.copy(preFinal)
+    pyperclip.copy(preDict)
 if int(answer)==1:
-    pyperclip.copy(postFinal)
+    pyperclip.copy(postDict)
 
 
 
