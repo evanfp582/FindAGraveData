@@ -41,7 +41,7 @@ print(allYear)
 print(len(allYear))
 length=len(allYear)
 
-#TODO: split two groups by death year
+
 deathYear=input("What year do you want to split the age groups into: ")
 halfLength=int(length/2)
 #print(halfLength)
